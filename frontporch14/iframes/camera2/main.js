@@ -32,20 +32,27 @@
   scene.add(mesh);
 
 
+  clock = new THREE.Clock();
+
+
   camera = new THREE.PerspectiveCamera(75, 4/3, 1, 10000);
 
   camera.position.y = 800;
 
-  light = new THREE.PointLight(0xffffff);
+  camera.position.x = Math.cos(45) * 1000;
 
-  light.position.set(400, 600, 400);
+  camera.position.z = Math.sin(45) * 1000;
 
-  scene.add(light);
+  camera.lookAt(scene.position);
 
   renderer.render(scene, camera);
 
 
-  clock = new THREE.Clock();
+
+/*
+  light = new THREE.PointLight(0xffffff);
+  light.position.set(400, 600, 400);
+  scene.add(light);
 
   var render = function() {
     // Rotate the camera
@@ -61,8 +68,7 @@
     requestAnimationFrame(loop,
                           renderer.domElement);
   };
-
   loop();
 
 
-
+*/
